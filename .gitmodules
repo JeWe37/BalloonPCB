@@ -1,3 +1,6 @@
 [submodule "test/SWO-Parser"]
 	path = test/SWO-Parser
 	url = https://github.com/robertlong13/SWO-Parser
+[submodule "lib/NeoGPS"]
+	path = lib/NeoGPS
+	url = https://github.com/JeWe37/NeoGPS
