@@ -4,3 +4,6 @@
 [submodule "lib/NeoGPS"]
 	path = lib/NeoGPS
 	url = https://github.com/JeWe37/NeoGPS
+[submodule "lib/Adafruit_SPIFlash"]
+	path = lib/Adafruit_SPIFlash
+	url = https://github.com/JeWe37/Adafruit_SPIFlash/

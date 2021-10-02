@@ -28,6 +28,10 @@ bool read(uint8_t *readbuff, uint32_t startSector, uint16_t numSectors) {
   return flash.readBlocks(startSector, readbuff, numSectors);
 }
 
+bool flush() {
+  return flash.syncBlocks();
+}
+
 File f;
 FatFileSystem fatfs;
 
@@ -58,7 +62,7 @@ void initFlash() {
     printf("Trying again\n");
   }
   cardSize = flash.size()/SECTOR_SIZE;
-  MassStorage.setDriveData(0, cardSize, read, write);
+  MassStorage.setDriveData(0, cardSize, read, write, flush);
 }
 
 void setupUSB() {
