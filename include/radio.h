@@ -167,9 +167,9 @@ void timeout() {
 void transmitFinished() {
   if (transm.packet == transm.packetNum) {
     transm.packet = 0;
-    printf("starttime: %ld", transm.startTime);
+    printf("starttime: %ld\n", transm.startTime);
     transm.startTime += (millis() - transm.startTime) / dutyCycle;
-    printf("starttime: %ld", transm.startTime);
+    printf("starttime: %ld\n", transm.startTime);
   } else
     Timer2.resume(); //start transmitting next packet in 500ms
 }

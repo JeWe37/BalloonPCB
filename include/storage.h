@@ -17,7 +17,7 @@ Adafruit_FlashTransport_SPI flashTransport(NCS, &SPI);
 Adafruit_SPIFlash flash(&flashTransport);
 
 const uint32_t speed = SPI_CLOCK_DIV2 ;
-bool enabled = false;
+bool enabled;
 uint32 cardSize;
 
 bool write(const uint8_t *writebuff, uint32_t startSector, uint16_t numSectors) {

@@ -10,12 +10,13 @@ void setup() {
   Wire.begin();
   setupUSB();
   pinMode(ENUSB, INPUT);
+  enabled = digitalRead(ENUSB) != HIGH;
   setupGPS();
   i2c::setupBMP();
   i2c::setupSPS30();
   initFlash();
   transm.setupLora();
-  Wire.setClock(50000); // required due to poor signal integrity
+  Wire.setClock(10000); // required due to poor signal integrity
 }
 
 void processData(const gps_fix& fix) {
@@ -81,6 +82,7 @@ void loop() {
       if (!fatfs.begin(&flash)) {
         printf("Error failed to mount flash chip, check connection\n");
       }
+      printf("Flash mounted");
       String fname = filename();
       printf(PSTR("Filename: %s\n"), fname.c_str());
       f = fatfs.open(fname, FILE_WRITE);
